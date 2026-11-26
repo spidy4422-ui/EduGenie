@@ -1,0 +1,211 @@
+/*
+   login.css
+   ------------------------------------------------
+   This file contains all styles specifically
+   for the EduGenie login page.
+*/
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #f8fafc
+    );
+
+    padding: 20px;
+}
+
+
+/* =========================
+   LOGIN SECTION
+========================= */
+
+.login-section {
+    width: 100%;
+    max-width: 420px;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Login heading */
+
+.login-section h1 {
+    color: #1e3a8a;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Login description */
+
+.login-section > p:first-of-type {
+    color: #666;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   LOGIN FORM
+========================= */
+
+.login-section form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* Input fields */
+
+.login-section input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+/* Input focus */
+
+.login-section input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-section button {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* Button hover */
+
+.login-section button:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   REGISTER LINK
+========================= */
+
+.login-section > p:last-of-type {
+    margin-top: 22px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* Create account link */
+
+.login-section a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* Link hover */
+
+.login-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-section {
+        padding: 30px 20px;
+    }
+
+    .login-section h1 {
+        font-size: 28px;
+    }
+}
+
+/* Login error message */
+.login-error {
+    color: #b91c1c;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}

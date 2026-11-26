@@ -1,0 +1,139 @@
+<!-- This page displays attendance records of all students to the Admin. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Attendance - EduGenie</title>
+
+    <!-- Connect the page with its dedicated CSS file. -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin_attendance.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main Admin Attendance container. -->
+    <div class="admin-attendance-container">
+
+        <!-- Page header. -->
+        <div class="page-header">
+
+            <div>
+                <h1>📊 Manage Attendance</h1>
+
+                <p>
+                    View attendance records of all EduGenie students.
+                </p>
+            </div>
+
+            <!-- Button to return to Admin Dashboard. -->
+            <a href="/admin" class="back-btn">
+                ← Admin Dashboard
+            </a>
+
+        </div>
+
+
+        {% if attendance %}
+
+        <!-- Attendance table wrapper makes the table scrollable on small screens. -->
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Attended</th>
+                        <th>Total Classes</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for record in attendance %}
+
+                    <tr>
+
+                        <td>
+                            {{ record["id"] }}
+                        </td>
+
+                        <td>
+                            {{ record["name"] }}
+                        </td>
+
+                        <td>
+                            {{ record["email"] }}
+                        </td>
+
+                        <td>
+                            {{ record["subject"] }}
+                        </td>
+
+                        <td>
+                            {{ record["attended"] }}
+                        </td>
+
+                        <td>
+                            {{ record["total_classes"] }}
+                        </td>
+
+                        <td>
+
+                            {% if record["total_classes"] > 0 %}
+
+                                {{ "%.1f"|format(
+                                    (record["attended"] / record["total_classes"]) * 100
+                                ) }}%
+
+                            {% else %}
+
+                                0%
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <!-- Message shown when no attendance records exist. -->
+        <div class="no-attendance">
+
+            <h3>📊 No Attendance Records</h3>
+
+            <p>
+                There are currently no attendance records in the system.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

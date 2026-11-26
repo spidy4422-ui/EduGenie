@@ -1,0 +1,131 @@
+<!--
+    This page is used to display the user's To-Do List.
+    Users can add new tasks and view their saved tasks.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To-Do List - EduGenie</title>
+
+    <!-- Load the dedicated To-Do CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/todos.css') }}">
+</head>
+
+<body>
+
+    <!-- Dashboard navigation bar -->
+    <nav class="dashboard-navbar">
+
+        <div class="dashboard-logo">
+            EduGenie
+        </div>
+
+        <ul class="dashboard-nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/subjects">Subjects</a></li>
+            <li><a href="/notes">Notes</a></li>
+            <li><a href="/todos">To-Do</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Main To-Do page -->
+    <main class="todos-page">
+
+        <h1>My To-Do List ✅</h1>
+
+        <p>
+            Organize your tasks and keep track of your daily work.
+        </p>
+
+
+        <!-- Form for adding a new task -->
+        <form class="todo-form" method="post" action="/todos">
+
+            <input
+                type="text"
+                name="task"
+                placeholder="Enter your task..."
+                required
+            >
+
+            <button type="submit">
+                Add Task
+            </button>
+
+        </form>
+
+
+        <!-- Display saved tasks -->
+        <section class="todo-list">
+
+            {% for todo in todos %}
+
+                <div class="todo-card">
+
+                        <div class="todo-content">
+
+                            <!-- Show a check mark when the task is completed -->
+                            {% if todo["completed"] == 1 %}
+                                <h3 class="completed-task">
+                                    ✓ {{ todo["task"] }}
+                                </h3>
+                            {% else %}
+                                <h3>
+                                    {{ todo["task"] }}
+                                </h3>
+                            {% endif %}
+
+                        </div>
+                       <!-- Task action buttons -->
+                        <div class="todo-actions">
+
+                            <!-- Complete / Pending button -->
+                            <a
+                                href="/complete_todo/{{ todo['id'] }}"
+                                class="complete-todo-btn"
+                            >
+                                {% if todo["completed"] == 1 %}
+                                    Mark Pending
+                                {% else %}
+                                    Complete
+                                {% endif %}
+                            </a>
+
+                            <!-- Delete button -->
+                            <a
+                                href="/delete_todo/{{ todo['id'] }}"
+                                class="delete-todo-btn"
+                                onclick="return confirm('Are you sure you want to delete this task?');"
+                            >
+                                Delete
+                            </a>
+
+                        </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="empty-todos">
+                    No tasks added yet. Add your first task above.
+                </p>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

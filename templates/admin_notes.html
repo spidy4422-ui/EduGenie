@@ -1,0 +1,102 @@
+<!-- This page displays all notes created by students.
+     The Admin can see the student details, note title and note content. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile and desktop. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Notes - EduGenie</title>
+
+    <!-- Connect this page with its dedicated CSS file. -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin_notes.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main Admin Notes container. -->
+    <div class="admin-notes-container">
+
+        <!-- Page header. -->
+        <div class="page-header">
+
+            <div>
+                <h1>📝 Manage Notes</h1>
+
+                <p>
+                    View notes created by EduGenie students.
+                </p>
+            </div>
+
+            <!-- Return to Admin Dashboard. -->
+            <a href="/admin" class="back-btn">
+                ← Admin Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- Notes list. -->
+        <div class="notes-list">
+
+            {% if notes %}
+
+                {% for note in notes %}
+
+                    <!-- Individual note card. -->
+                    <div class="note-card">
+
+                        <div class="note-header">
+
+                            <div>
+                                <h2>
+                                    {{ note["title"] }}
+                                </h2>
+
+                                <p class="student-info">
+                                    👤 {{ note["name"] }}
+                                    &nbsp; | &nbsp;
+                                    📧 {{ note["email"] }}
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Display the student's note content. -->
+                        <div class="note-content">
+                            {{ note["content"] }}
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <!-- Message shown when no notes exist. -->
+                <div class="no-notes">
+
+                    <h3>📝 No Notes Found</h3>
+
+                    <p>
+                        There are currently no notes in the system.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

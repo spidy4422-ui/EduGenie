@@ -1,0 +1,105 @@
+
+<!-- This page displays the student's quiz score and answer explanations.
+     It receives the evaluated results from the Flask backend. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Result - EduGenie</title>
+
+    <!-- Reuse the quiz stylesheet for consistent styling. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/quiz_generator.css') }}">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+
+        <!-- Display the overall quiz result. -->
+        <div class="quiz-header">
+            <h1>🎉 Quiz Completed!</h1>
+            <p>Here is your performance summary.</p>
+            <p><strong>Subject:</strong> {{ subject }}</p>
+            <p><strong>Topic:</strong> {{ topic }}</p>
+        </div>
+
+        <!-- Display score and percentage. -->
+        <div class="quiz-form-card result-summary">
+
+            <h2>Your Score</h2>
+
+            <h1>{{ score }} / {{ total }}</h1>
+
+            <p><strong>{{ percentage }}%</strong></p>
+
+            {% if percentage >= 80 %}
+                <p>Excellent work! Keep it up! 🌟</p>
+            {% elif percentage >= 50 %}
+                <p>Good effort! Keep practicing! 👍</p>
+            {% else %}
+                <p>Keep learning. You can improve with practice! 📚</p>
+            {% endif %}
+
+        </div>
+
+        <!-- Display each question with its evaluated answer. -->
+        {% for result in results %}
+
+            <div class="quiz-form-card result-card">
+
+                <h3>
+                    Question {{ loop.index }}.
+                    {{ result.question }}
+                </h3>
+
+                <p>
+                    <strong>Your Answer:</strong>
+                    {% if result.selected_answer %}
+                        {{ result.selected_answer }}.
+                        {{ result.options[result.selected_answer] }}
+                    {% else %}
+                        Not Answered
+                    {% endif %}
+                </p>
+
+                <p>
+                    <strong>Correct Answer:</strong>
+                    {{ result.correct_answer }}.
+                    {{ result.options[result.correct_answer] }}
+                </p>
+
+                {% if result.is_correct %}
+                    <p class="correct-message">✓ Correct Answer</p>
+                {% else %}
+                    <p class="wrong-message">✗ Incorrect Answer</p>
+                {% endif %}
+
+                <div class="explanation-box">
+                    <strong>Explanation:</strong>
+                    <p>{{ result.explanation }}</p>
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+        <!-- Allow the student to generate another quiz. -->
+        <div class="result-actions">
+            <a href="/quiz-generator" class="generate-btn">
+                Generate Another Quiz
+            </a>
+
+            <a href="/dashboard" class="dashboard-link">
+                Back to Dashboard
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

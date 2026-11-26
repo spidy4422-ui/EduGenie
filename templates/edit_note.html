@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Set character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Make the page responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set browser tab title -->
+    <title>Edit Note - EduGenie</title>
+
+    <!-- Use the existing subjects stylesheet for basic styling -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/notes.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="dashboard-navbar">
+
+        <!-- EduGenie logo -->
+        <div class="dashboard-logo">
+            EduGenie
+        </div>
+
+        <!-- Navigation links -->
+        <ul class="dashboard-nav-links">
+
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/subjects">Subjects</a></li>
+            <li><a href="/notes">Notes</a></li>
+            <li><a href="/todos">To-Do</a></li>
+            <li><a href="/logout">Logout</a></li>
+
+        </ul>
+    </nav>
+
+
+    <!-- Main edit note section -->
+    <main class="subjects-page">
+
+        <!-- Page heading -->
+        <h1>Edit Note ✏️</h1>
+
+        <!-- Page description -->
+        <p>
+            Update your note title or content.
+        </p>
+
+
+        <!-- Edit note form -->
+        <form class="subject-form" method="post">
+
+            <!-- Note title -->
+            <input
+                type="text"
+                name="title"
+                value="{{ note['title'] }}"
+                placeholder="Enter note title"
+                required
+            >
+
+            <!-- Note content -->
+            <textarea
+                name="content"
+                rows="8"
+                placeholder="Write your note here..."
+                required
+            >{{ note["content"] }}</textarea>
+
+            <!-- Save updated note -->
+            <button type="submit">
+                Update Note
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

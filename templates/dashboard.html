@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Set character encoding for the dashboard page -->
+    <meta charset="UTF-8">
+
+    <!-- Make the dashboard responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the browser tab title -->
+    <title>Dashboard - EduGenie</title>
+
+    <!-- Connect the common EduGenie stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+
+<body>
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <!-- Create the dashboard navigation bar for quick access to important pages -->
+    <nav class="dashboard-navbar">
+
+    <!-- Display the EduGenie logo/name -->
+    <div class="dashboard-logo">
+        EduGenie
+  </div>
+
+    <!-- Provide navigation links inside the dashboard -->
+    <ul class="dashboard-nav-links">
+
+        <!-- Link back to the main landing page -->
+        <li><a href="/">Home</a></li>
+
+        <!-- Link to the dashboard itself -->
+        <li><a href="/dashboard">Dashboard</a></li>
+
+        <!-- Logout link for leaving the current session -->
+        <li><a href="/logout">Logout</a></li>
+
+    </ul>
+
+</nav>
+  </header>
+
+
+<!-- Main Dashboard Content -->
+<main class="dashboard">
+
+      <!-- Welcome section -->
+      <section class="dashboard-welcome">
+
+      <!-- Display the main welcome message -->
+    <h2>Welcome, {{ session["user_name"]}} 👋</h2>
+
+      <!-- Explain what the student can do from the dashboard -->
+      <p>
+        Your smart student companion for learning,
+        productivity and academic progress.
+      </p>
+
+      <!-- Provide a quick action for the student -->
+      <a href="#feature" class="dashboard-btn">
+        Explore Features
+        </a>
+      </section>
+
+
+        <!-- Dashboard Feature Cards -->
+        <section class="dashboard-cards" id="feature">
+
+            <!-- Subjects card ->
+
+                <!-- Create a clickable card for Subject Management -->
+                <a href="/subjects" class="dashboard-card">
+
+                <!-- Display the Subjects feature title -->
+                <h3>📚 Subjects</h3>
+
+                <!-- Explain what the Subjects feature does -->
+                <p>Manage your subjects and study material.</p>
+
+                </a>
+
+            <!-- Notes card -->
+            <a href="/notes" class="dashboard-card">
+                <h3>📝 Notes</h3>
+                <p>Access and organize your semester notes.</p>
+            </a>
+
+            <!-- AI Doubt Solver card -->
+            <a href="ai_doubt" class="dashboard-card">
+                <h3>🤖 AI Doubt Solver</h3>
+                <p>Get help with your academic doubts.</p>
+            </a>
+
+            <!-- Attendance card -->
+            <a href="/attendance" class="dashboard-card">
+                <h3>📊 Attendance</h3>
+                <p>Track your attendance percentage.</p>
+            </a>
+
+            <!--
+                This card opens the To-Do List page.
+                The user can manage daily tasks from there.
+            -->
+            <a href="/todos" class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    ✅
+                </div>
+
+                <h3>To-Do List</h3>
+
+                <p>
+                    Manage your daily tasks and track completed work.
+                </p>
+
+            </a>
+
+            
+                <!-- This card gives students direct access to the AI Quiz Generator. -->
+
+                <a href="/quiz-generator" class="dashboard-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>AI Quiz Generator</h3>
+                    <p>Generate MCQ quizzes and test your knowledge with AI.</p>
+                </a>
+
+            <!-- Study Planner card -->
+                <a href="/planner" class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        📅
+                    </div>
+
+                    <h3>Study Planner</h3>
+
+                    <p>
+                        Plan your study sessions and organize your schedule.
+                    </p>
+
+                </a>
+                <!-- Notes Summarizer card -->
+                    <!-- This card allows the student to open the Notes Summarizer directly from the dashboard. -->
+                    <a href="/notes-summarizer" class="dashboard-card">
+                        <h3>📝 Notes Summarizer</h3>
+                        <p>Summarize your study notes using AI.</p>
+                    </a>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

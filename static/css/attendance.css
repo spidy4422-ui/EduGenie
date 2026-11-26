@@ -1,0 +1,242 @@
+/*
+    This CSS styles the Attendance Tracker page.
+    It gives the page a clean, responsive EduGenie design.
+*/
+
+/* Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Main page */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #111827;
+}
+
+
+/* Dashboard navbar */
+.dashboard-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* EduGenie logo */
+.dashboard-logo {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+
+/* Navigation links */
+.dashboard-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+
+.dashboard-nav-links a {
+    color: #111827;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+.dashboard-nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* Main attendance container */
+.attendance-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+
+/* Page heading */
+.attendance-page h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+
+/* Page description */
+.attendance-page > p {
+    color: #6b7280;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+
+/* Attendance form */
+.attendance-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+
+/* Form inputs */
+.attendance-form input {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+
+/* Input focus effect */
+.attendance-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* Add attendance button */
+.attendance-form button {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.attendance-form button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Attendance records grid */
+.attendance-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+
+/* Attendance card */
+.attendance-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+
+.attendance-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Subject name */
+.attendance-card h3 {
+    font-size: 21px;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+
+/* Attendance information */
+.attendance-card p {
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+
+/* Delete attendance button */
+.delete-attendance-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 14px;
+    background: #dc2626;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+.delete-attendance-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* Empty attendance message */
+.empty-attendance {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    color: #6b7280;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    .dashboard-navbar {
+        padding: 16px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dashboard-logo {
+        font-size: 30px;
+    }
+
+    .dashboard-nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .dashboard-nav-links a {
+        font-size: 14px;
+    }
+
+    .attendance-page h1 {
+        font-size: 30px;
+    }
+
+    .attendance-form {
+        padding: 20px;
+    }
+
+    .attendance-list {
+        grid-template-columns: 1fr;
+    }
+}

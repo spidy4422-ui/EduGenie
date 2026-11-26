@@ -1,0 +1,132 @@
+<!-- This page creates the main Admin Dashboard.
+     It gives the administrator an overview of the EduGenie system. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the admin dashboard responsive on mobile and desktop. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - EduGenie</title>
+
+    <!-- Connect the Admin Dashboard with its dedicated CSS file. -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin_dashboard.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main Admin Dashboard container. -->
+    <div class="admin-container">
+
+        <!-- Admin navigation bar. -->
+        <!-- This navigation bar provides Admin branding and navigation options. -->
+<nav class="admin-navbar">
+
+    <h2>EduGenie Admin</h2>
+
+    <div class="admin-nav-links">
+
+        <!-- Opens the normal Student Dashboard. -->
+        <a href="/dashboard" class="dashboard-btn">
+            Student Dashboard
+        </a>
+
+        <!-- Logs the Admin out of the system. -->
+        <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+        <!-- Admin welcome section. -->
+        <section class="admin-welcome">
+
+            <h1>Welcome, Admin 👋</h1>
+
+            <p>
+                Manage and monitor the EduGenie student platform.
+            </p>
+
+        </section>
+
+
+        <!-- Admin statistics cards. -->
+        <section class="admin-stats">
+
+            <!-- These cards display real statistics fetched from the database. -->
+
+<!-- Total users card. -->
+<div class="admin-card">
+    <h3>👥 Total Users</h3>
+    <p>{{ total_users }}</p>
+</div>
+
+<!-- Total subjects card. -->
+<div class="admin-card">
+    <h3>📚 Subjects</h3>
+    <p>{{ total_subjects }}</p>
+</div>
+
+<!-- Total notes card. -->
+<div class="admin-card">
+    <h3>📝 Notes</h3>
+    <p>{{ total_notes }}</p>
+</div>
+
+<!-- Total attendance records card. -->
+<div class="admin-card">
+    <h3>📊 Attendance</h3>
+    <p>{{ total_attendance }}</p>
+</div>
+
+        </section>
+
+
+        <!-- Admin management section. -->
+        <section class="admin-management">
+
+            <h2>Admin Management</h2>
+
+            <div class="management-grid">
+
+                <!-- User management option. -->
+                <a href="/admin/users" class="management-card">
+                    <h3>👥 Manage Users</h3>
+                    <p>View and manage registered students.</p>
+                </a>
+
+                <!-- Subject management option. -->
+                <a href="/admin/subjects" class="management-card">
+                    <h3>📚 Manage Subjects</h3>
+                    <p>View student subject information.</p>
+                </a>
+
+                <!-- Notes management option. -->
+                <a href="/admin/notes" class="management-card">
+                    <h3>📝 Manage Notes</h3>
+                    <p>View student notes stored in the system.</p>
+                </a>
+
+                <!-- Attendance management option. -->
+                <a href="/admin/attendance" class="management-card">
+                    <h3>📊 Manage Attendance</h3>
+                    <p>Monitor attendance records.</p>
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>

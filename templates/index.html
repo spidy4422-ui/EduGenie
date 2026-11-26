@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduGenie</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- ================= HEADER SECTION START ================= -->
+
+<header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+
+        <!-- Website Logo -->
+        <div class="logo">
+            EduGenie
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+
+            <li><a href="/">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="/login">Login</a></li>
+
+        </ul>
+                
+        <!-- Hamburger Menu Button -->
+
+        <button class="menu-btn" aria-label="Open navigation menu">☰</button>
+
+    </nav>
+
+</header>
+
+<!-- ================= HEADER SECTION END ================= -->
+  <section class ="hero">
+    <h1>EduGenie</h1>
+
+    <h2>Ai Powered Student Companion </h2>
+
+    <p>
+       Manage your notes, solve doubts with AI,
+       generate quizzes and organize your studies
+       from one smart platform.
+    </p>
+    <a href="/login" class="primary-btn">Get started</a>
+    <a href="#features" class="secondary-btn">Learn more</a>
+  </section>
+
+  <!--======================= Features Section ==============================-->
+<section class="features" id="features">
+
+    <!-- Features Section Heading -->
+    <h2>Everything You Need to Study Smarter</h2>
+
+    <!-- Container for all feature cards -->
+    <div class="feature-container">
+
+        <!-- AI Doubt Solver Feature -->
+        <a href="/dashboard" class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI Doubt Solver</h3>
+            <p>
+                Get quick explanations and guidance
+                for your study-related doubts.
+            </p>
+        </a>
+
+        <!-- Notes Management Feature -->
+        <a href="/dashboard" class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Notes Management</h3>
+            <p>
+                Organize and access your semester-wise
+                notes from one place.
+            </p>
+        </a>
+
+        <!-- Quiz Generator Feature -->
+        <a href="/dashboard" class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Quiz Generator</h3>
+            <p>
+                Create practice quizzes to test
+                your knowledge and preparation.
+            </p>
+        </a>
+
+        <!-- Study Analytics Feature -->
+        <a href="/dashboard" class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Study Analytics</h3>
+            <p>
+                Track your study hours, subject progress
+                and overall performance.
+            </p>
+        </a>
+
+        <!-- Attendance Tracker Feature -->
+        <a href="/attendance" class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Attendance Tracker</h3>
+            <p>
+                Monitor your attendance percentage
+                and stay on track with classes.
+            </p>
+        </a>
+
+        <!-- Study Planner Feature -->
+        <a href="/dashboard" class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Study Planner</h3>
+            <p>
+                Organize tasks and create a better
+                study routine.
+            </p>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+
+    <!-- About section heading -->
+    <h2>About EduGenie</h2>
+
+    <!-- Explain what EduGenie is and its purpose -->
+    <p>
+        EduGenie is an AI-powered student companion
+        designed to help students manage their studies
+        from one smart platform.
+    </p>
+
+    <!-- Highlight the main purpose of the project -->
+    <p>
+        It combines AI-powered learning tools,
+        study management and productivity features
+        to make everyday student life more organized.
+    </p>
+
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+
+    <!-- Website name shown in the footer -->
+    <h3>EduGenie</h3>
+
+    <!-- Short description of the website -->
+    <p>
+        AI-Powered Student Companion
+    </p>
+
+    <!-- Footer navigation links -->
+    <div class="footer-links">
+
+        <!-- Link to the home section -->
+        <a href="/">Home</a>
+
+        <!-- Link to the features section -->
+        <a href="#features">Features</a>
+
+        <!-- Link to the about section -->
+        <a href="#about">About</a>
+
+    </div>
+
+    <!-- Copyright information -->
+    <p class="copyright">
+        © 2026 EduGenie. All rights reserved.
+    </p>
+
+</footer>
+<!-- Connect JavaScript File -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

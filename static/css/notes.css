@@ -1,0 +1,291 @@
+/* Reset default browser spacing and make sizing predictable */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the basic page appearance */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #111827;
+}
+
+
+/* ============================= */
+/* Navigation Bar */
+/* ============================= */
+
+/* Style the Notes page navigation bar */
+.dashboard-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Style the EduGenie logo */
+.dashboard-logo {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Arrange navigation links horizontally */
+.dashboard-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+}
+
+/* Style navigation links */
+.dashboard-nav-links a {
+    color: #111827;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Change navigation link color on hover */
+.dashboard-nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* ============================= */
+/* Main Notes Page */
+/* ============================= */
+
+/* Center and limit the width of the Notes page */
+.subjects-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+/* Style the main Notes heading */
+.subjects-page h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+/* Style the page description */
+.subjects-page > p {
+    color: #6b7280;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+/* Add Note Form */
+/* ============================= */
+
+/* Create a clean card around the Add Note form */
+.subject-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+/* Style the title input */
+.subject-form input {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Style the note content textarea */
+.subject-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    outline: none;
+}
+
+/* Highlight the input when it receives focus */
+.subject-form input:focus,
+.subject-form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* Style the Add/Update Note button */
+.subject-form button {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change button color on hover */
+.subject-form button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ============================= */
+/* Notes Grid */
+/* ============================= */
+
+/* Display notes in a responsive grid */
+.subject-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+/* Style each individual note card */
+.subject-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+/* Lift the note card slightly on hover */
+.subject-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+/* Style note title */
+.subject-card h3 {
+    font-size: 21px;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+/* Style note content */
+.subject-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 18px;
+}
+
+
+/* ============================= */
+/* Edit and Delete Buttons */
+/* ============================= */
+
+/* Style the Edit button */
+.edit-note-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-right: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Change Edit button color on hover */
+.edit-note-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Style the Delete button */
+.delete-subject-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #dc2626;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Change Delete button color on hover */
+.delete-subject-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* ============================= */
+/* Empty Notes Message */
+/* ============================= */
+
+/* Style the message shown when there are no notes */
+.empty-subjects {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    color: #6b7280;
+}
+
+
+/* ============================= */
+/* Mobile Responsive Design */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    /* Reduce navbar spacing on smaller screens */
+    .dashboard-navbar {
+        padding: 16px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Reduce logo size on mobile */
+    .dashboard-logo {
+        font-size: 30px;
+    }
+
+    /* Reduce navigation spacing */
+    .dashboard-nav-links {
+        gap: 20px;
+    }
+
+    /* Reduce navigation text size */
+    .dashboard-nav-links a {
+        font-size: 16px;
+    }
+
+    /* Reduce page heading size */
+    .subjects-page h1 {
+        font-size: 30px;
+    }
+
+    /* Show one note per row on mobile */
+    .subject-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce form spacing */
+    .subject-form {
+        padding: 20px;
+    }
+}

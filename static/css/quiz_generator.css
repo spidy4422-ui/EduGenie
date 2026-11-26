@@ -1,0 +1,276 @@
+
+/* This CSS styles the AI Quiz Generator page.
+   It makes the form clean, attractive and responsive. */
+
+/* Reset default spacing and set the page background. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the main page. */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Center the quiz content and limit its width. */
+.quiz-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* Style the page heading. */
+.quiz-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+    color: #2563eb;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.quiz-header p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* Create a white card around the quiz form. */
+.quiz-form-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Style form labels. */
+.quiz-form-card label {
+    display: block;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+/* Remove the extra top margin from the first label. */
+.quiz-form-card label:first-child {
+    margin-top: 0;
+}
+
+/* Style input fields and dropdown. */
+.quiz-form-card input,
+.quiz-form-card select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: #ffffff;
+    color: #334155;
+}
+
+/* Highlight the field when the student clicks it. */
+.quiz-form-card input:focus,
+.quiz-form-card select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Style the Generate Quiz button. */
+.generate-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 28px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Change button color when the mouse hovers over it. */
+.generate-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Adjust the layout for mobile screens. */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    .quiz-header h1 {
+        font-size: 26px;
+    }
+
+    .quiz-form-card {
+        padding: 22px;
+    }
+}
+
+/* These styles improve the appearance of quiz questions and results. */
+
+/* Add spacing between individual question cards. */
+.question-card {
+    padding: 22px;
+    margin-bottom: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+/* Style the question heading. */
+.question-card h3,
+.result-card h3 {
+    color: #1e293b;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* Arrange answer options vertically. */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Make each option look like a selectable card. */
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #334155;
+    transition: 0.2s ease;
+}
+
+.option-label:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+/* Prevent radio buttons from stretching across the page. */
+.option-label input {
+    width: auto;
+    margin: 0;
+    accent-color: #2563eb;
+}
+
+/* Style the result summary card. */
+.result-summary {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.result-summary h2 {
+    color: #334155;
+    margin-bottom: 15px;
+}
+
+.result-summary h1 {
+    color: #2563eb;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.result-summary p {
+    color: #64748b;
+    margin-top: 10px;
+}
+
+/* Add spacing to individual result cards. */
+.result-card {
+    margin-bottom: 20px;
+}
+
+.result-card > p {
+    color: #475569;
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+/* Show correct and incorrect answers clearly. */
+.correct-message {
+    color: #15803d !important;
+    font-weight: 700;
+}
+
+.wrong-message {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+/* Highlight the explanation section. */
+.explanation-box {
+    margin-top: 18px;
+    padding: 15px;
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.explanation-box p {
+    margin-top: 7px;
+}
+
+/* Arrange result page navigation links. */
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Style the dashboard link. */
+.dashboard-link {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dashboard-link:hover {
+    background: #eff6ff;
+}
+
+/* Remove default underline from the generate button link. */
+.result-actions .generate-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Keep the result page comfortable on mobile devices. */
+@media (max-width: 600px) {
+    .question-card {
+        padding: 16px;
+    }
+
+    .result-summary h1 {
+        font-size: 34px;
+    }
+
+    .question-card h3,
+    .result-card h3 {
+        font-size: 16px;
+    }
+}

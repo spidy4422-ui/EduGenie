@@ -1,0 +1,117 @@
+<!-- This page displays all registered student accounts.
+     The Admin can view basic student information from here. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile and desktop. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Users - EduGenie</title>
+
+    <!-- Connect this page with its dedicated CSS file. -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin_users.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main container for the Admin Users page. -->
+    <div class="admin-users-container">
+
+        <!-- Page header. -->
+        <div class="page-header">
+
+            <div>
+                <h1>👥 Manage Users</h1>
+
+                <p>
+                    View all registered students on EduGenie.
+                </p>
+            </div>
+
+            <!-- Return to Admin Dashboard. -->
+            <a href="/admin" class="back-btn">
+                ← Admin Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- Student users table. -->
+        <div class="users-table-container">
+
+            {% if users %}
+
+                <table class="users-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for user in users %}
+
+                            <tr>
+
+                                <td>
+                                    {{ user["id"] }}
+                                </td>
+
+                                <td>
+                                    {{ user["name"] }}
+                                </td>
+
+                                <td>
+                                    {{ user["email"] }}
+                                </td>
+
+                                <td>
+                                    <a
+                                        href="/admin/delete-user/{{ user['id'] }}"
+                                        class="delete-btn"
+                                        onclick="return confirm('Are you sure you want to delete this student?');"
+                                    >
+                                        Delete
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            {% else %}
+
+                <!-- Message shown when no students are registered. -->
+                <div class="no-users">
+                    <h3>👤 No Students Found</h3>
+
+                    <p>
+                        There are currently no student accounts.
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

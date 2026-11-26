@@ -1,0 +1,82 @@
+/* 
+   common.css
+   ------------------------------------------------
+   This file contains styles that can be shared
+   across multiple pages of the EduGenie project.
+*/
+
+/* Remove default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #222;
+}
+
+/* Common container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Common button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Primary button */
+.btn-primary {
+    background-color: #2563eb;
+    color: white;
+}
+
+/* Primary button hover */
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+/* Secondary button */
+.btn-secondary {
+    background-color: white;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+/* Secondary button hover */
+.btn-secondary:hover {
+    background-color: #eff6ff;
+}
+
+/* Common heading */
+h1,
+h2,
+h3 {
+    margin-bottom: 10px;
+}
+
+/* Mobile common styling */
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}

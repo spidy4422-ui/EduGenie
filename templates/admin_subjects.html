@@ -1,0 +1,113 @@
+<!-- This page displays all subjects added by students.
+     The Admin can see which student added each subject. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile and desktop. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Subjects - EduGenie</title>
+
+    <!-- Connect this page with its dedicated CSS file. -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin_subjects.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main Admin Subjects container. -->
+    <div class="admin-subjects-container">
+
+        <!-- Page header. -->
+        <div class="page-header">
+
+            <div>
+                <h1>📚 Manage Subjects</h1>
+
+                <p>
+                    View subjects added by EduGenie students.
+                </p>
+            </div>
+
+            <!-- Return to Admin Dashboard. -->
+            <a href="/admin" class="back-btn">
+                ← Admin Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- Subjects table container. -->
+        <div class="subjects-table-container">
+
+            {% if subjects %}
+
+                <table class="subjects-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for subject in subjects %}
+
+                            <tr>
+
+                                <td>
+                                    {{ subject["id"] }}
+                                </td>
+
+                                <td>
+                                    {{ subject["name"] }}
+                                </td>
+
+                                <td>
+                                    {{ subject["email"] }}
+                                </td>
+
+                                <td>
+                                    {{ subject["subject_name"] }}
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            {% else %}
+
+                <!-- Message shown when no subjects exist. -->
+                <div class="no-subjects">
+
+                    <h3>📚 No Subjects Found</h3>
+
+                    <p>
+                        There are currently no subjects in the system.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

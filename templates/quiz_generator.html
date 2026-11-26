@@ -1,0 +1,81 @@
+
+<!-- This page provides the interface for the AI Quiz Generator.
+     Students can enter a topic and generate MCQ questions. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Quiz Generator - EduGenie</title>
+
+    <!-- Connect this page with its dedicated CSS file. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/quiz_generator.css') }}">
+</head>
+
+<body>
+
+    <!-- Main quiz generator container. -->
+    <div class="quiz-container">
+
+        <!-- Page heading. -->
+        <div class="quiz-header">
+            <h1>🧠 AI Quiz Generator</h1>
+            <p>Generate MCQ quizzes and test your knowledge.</p>
+        </div>
+
+        <!-- Quiz generation form. -->
+        <div class="quiz-form-card">
+
+            <form method="POST" action="/quiz-generator">
+
+                <!-- Student enters the subject. -->
+                <label for="subject">Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="e.g. Data Structures"
+                    required
+                >
+
+                <!-- Student enters the topic. -->
+                <label for="topic">Topic</label>
+
+                <input
+                    type="text"
+                    id="topic"
+                    name="topic"
+                    placeholder="e.g. Binary Trees"
+                    required
+                >
+
+                <!-- Student selects the number of questions. -->
+                <label for="question_count">Number of Questions</label>
+
+                <select id="question_count" name="question_count" required>
+                    <option value="5">5 Questions</option>
+                    <option value="10">10 Questions</option>
+                    <option value="15">15 Questions</option>
+                </select>
+
+                <!-- Generate quiz button. -->
+                <button type="submit" class="generate-btn">
+                    Generate Quiz 🚀
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+/*
+    This CSS styles the To-Do List page.
+    It gives the page the same clean and responsive
+    design used in the other EduGenie pages.
+*/
+
+/* Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Main page styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #111827;
+}
+
+
+/* Dashboard navigation bar */
+.dashboard-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* EduGenie logo */
+.dashboard-logo {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+
+/* Navigation links */
+.dashboard-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+
+.dashboard-nav-links a {
+    color: #111827;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+.dashboard-nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* Main To-Do page container */
+.todos-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+
+/* Page heading */
+.todos-page h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+
+/* Page description */
+.todos-page > p {
+    color: #6b7280;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+
+/* Add task form */
+.todo-form {
+    display: flex;
+    gap: 12px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+
+/* Task input */
+.todo-form input {
+    flex: 1;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+
+.todo-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* Add task button */
+.todo-form button {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.todo-form button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Task list */
+.todo-list {
+    display: grid;
+    gap: 18px;
+}
+
+
+/* Individual task card */
+.todo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    padding: 20px 22px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+
+.todo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Task text */
+.todo-content h3 {
+    font-size: 18px;
+    color: #111827;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+
+/* Delete button */
+.delete-todo-btn {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 8px 14px;
+    background: #dc2626;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+.delete-todo-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* Empty task message */
+.empty-todos {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    color: #6b7280;
+}
+
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+
+    .dashboard-navbar {
+        padding: 16px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dashboard-logo {
+        font-size: 30px;
+    }
+
+    .dashboard-nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .dashboard-nav-links a {
+        font-size: 15px;
+    }
+
+    .todos-page h1 {
+        font-size: 30px;
+    }
+
+    .todo-form {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .todo-form button {
+        width: 100%;
+    }
+
+    .todo-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .delete-todo-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/*
+    These styles show completed tasks differently
+    and style the Complete/Pending button.
+*/
+
+/* Complete / Pending button */
+.complete-todo-btn {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 8px 14px;
+    background: #16a34a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.complete-todo-btn:hover {
+    background: #15803d;
+}
+
+
+/* Completed task appearance */
+.completed-task {
+    text-decoration: line-through;
+    color: #9ca3af !important;
+}
+
+
+/* Keep task action buttons together */
+.todo-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+
+/* Responsive action buttons */
+@media (max-width: 768px) {
+    .todo-actions {
+        width: 100%;
+    }
+
+    .todo-actions a {
+        flex: 1;
+        text-align: center;
+    }
+}

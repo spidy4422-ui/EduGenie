@@ -1,0 +1,93 @@
+
+<!-- This template displays AI-generated MCQ questions.
+     Students can select one answer for each question. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attempt Quiz - EduGenie</title>
+
+    <!-- Load the CSS file for the quiz interface. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/quiz_generator.css') }}">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+
+        <!-- Display quiz title and topic information. -->
+        <div class="quiz-header">
+            <h1>🧠 AI Generated Quiz</h1>
+            <p>Test your knowledge with EduGenie!</p>
+            <p><strong>Subject:</strong> {{ subject }}</p>
+            <p><strong>Topic:</strong> {{ topic }}</p>
+        </div>
+
+        <!-- Send selected answers to Flask for evaluation. -->
+        <div class="quiz-form-card">
+
+            <form method="POST" action="/submit-quiz">
+
+                <!-- Identify which quiz the student is attempting. -->
+                <input type="hidden" name="quiz_id" value="{{ quiz_id }}">
+
+
+<!-- Display each question and its four options.
+     Store the outer question index so every answer gets a unique field name. -->
+
+{% for question in questions %}
+
+    {% set question_index = loop.index0 %}
+
+    <div class="question-card">
+
+        <!-- Show the question number and question text. -->
+        <h3>
+            Question {{ loop.index }}.
+            {{ question.question }}
+        </h3>
+
+        <!-- Show four selectable options. -->
+        <div class="options-container">
+
+            {% for key, option in question.options.items() %}
+
+                <label class="option-label">
+
+                    <input
+                        type="radio"
+                        name="q_{{ question_index }}"
+                        value="{{ key }}"
+                        required
+                    >
+
+                    <span>{{ key }}. {{ option }}</span>
+
+                </label>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endfor %}
+
+
+                <!-- Submit all selected answers for checking. -->
+                <button type="submit" class="generate-btn">
+                    Submit Quiz
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
